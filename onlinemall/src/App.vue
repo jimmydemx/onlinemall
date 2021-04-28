@@ -1,28 +1,30 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <child1 :valuetochild1="t">{{t+1}}</child1>
+    <child2 ref="c2"></child2>
+    <p>{{pp}}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import child1 from './test/child1.vue'
+import child2 from './test/child2.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    child1,child2
+  },
+  data: ()=>{
+    return {
+      t:1231,
+      pp:this.children[1].c2m()
+    }
   }
 }
-</script>
+</script> 
 
 <style>
 #app {
