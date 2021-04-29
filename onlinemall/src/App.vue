@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <child1 :valuetochild1="t">{{t+1}}</child1>
-    <child2 ref="c2"></child2>
-    <p>{{pp}}</p>
+    <!-- <child1 :vtochild1="t">{{t+1}}</child1>
+    <child2 ref="c2"></child2> -->
+    <!-- <p>{{pp()}}</p> -->
+    <!-- <button @click="goHome">回家吃饭</button> -->
+    <kformindex></kformindex>
   </div>
 </template>
 
@@ -11,18 +13,26 @@
 
 import child1 from './test/child1.vue'
 import child2 from './test/child2.vue'
+import kformindex from './Kform/index.vue'
 
 export default {
   name: 'app',
   components: {
-    child1,child2
+    child1,child2,kformindex
   },
-  data: ()=>{
+  data: function(){
     return {
-      t:1231,
-      pp:this.children[1].c2m()
+      t:1231,    
     }
-  }
+  },
+  methods:{
+  //     goHome(){
+  //    console.log(this.$refs.c2.c2m())  
+  // } 
+    },
+   mounted(){
+    //  this.goHome()
+   } 
 }
 </script> 
 

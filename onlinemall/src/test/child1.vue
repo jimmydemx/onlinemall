@@ -2,7 +2,7 @@
   <div>
     <slot></slot>
     <grandson1></grandson1>
-  <p>{{valuetochild1}}</p>
+  <p>{{vtochild1}}</p>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import grandson1 from './gandson1'
 export default {
     name:"child1",
-    props:["valuetochild1"],
+    props:["vtochild1"],
     components:{grandson1}
    
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-  <p>2</p>
+  <p>{{c2m()}}</p>
 </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
     name: "child2",
     methods:{
         c2m(){
-            console.log("this is c2m")
+            return "this is c2m"
         }
     }
     
