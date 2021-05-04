@@ -1,11 +1,16 @@
 <template>
   <div id="app">
+      <div id='nav'>
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link> 
+    </div>
+    <router-view/>
     <img src="./assets/logo.png">
-    <!-- <child1 :vtochild1="t">{{t+1}}</child1>
-    <child2 ref="c2"></child2> -->
+    <!-- <child1 :vtochild1="t">{{t+1}}</child1> -->
+    <!-- <child2 ref="c2"></child2> -->
     <!-- <p>{{pp()}}</p> -->
     <!-- <button @click="goHome">回家吃饭</button> -->
-    <kformindex></kformindex>
+    <!-- <kformindex></kformindex> -->
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot></slot>
+    <!-- <slot></slot> -->
     <grandson1></grandson1>
   <p>{{vtochild1}}</p>
   </div>
@@ -11,7 +11,11 @@ import grandson1 from './gandson1'
 export default {
     name:"child1",
     props:["vtochild1"],
-    components:{grandson1}
+    components:{grandson1},
+    mounted(){
+      console.log(this.$slots.default);
+      
+    }
    
 }
 </script>

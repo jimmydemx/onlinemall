@@ -1,7 +1,10 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter from './krouter'
 import Home from '../views/Home.vue'
+//import VueRouter from 'vue-router'
 
+
+//创建VueRouter实例，并且调用其intall方法
 Vue.use(VueRouter)
 
 const routes = [
