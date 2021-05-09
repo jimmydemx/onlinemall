@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="app"></p>
+</body>
+    <script>
+        let obj={}
+
+        function defineReactivity(obj,key,val){
+            Object.defineProperty(obj,key,{
+                // obj.key
+                get(){
+                    console.log("get"+key)
+                    return val
+                },
+
+                // obj.key=xxxx
+                set(newVal){
+                    if (newVal !==val)  {
+
+                        val=newVal
+                        console.log("the new value is: "+val)
+                        updateDOM()
+
+                    }  
+
+
+                }
+            })
+        }
+            function updateDOM(){
+
+                app.innerHTML=obj.foo
+
+
+            }
+          
+            defineReactivity(obj,"foo","")
+            obj.foo=new Date().toLocaleTimeString()
+            setInterval(() => {
+                obj.foo=new Date().toLocaleTimeString()  
+            }, 1000);
+
+
+
+
+    </script>   
+</html>
