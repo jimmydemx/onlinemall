@@ -5,7 +5,7 @@ function defineReactivity(obj,key,val){
         // obj.key
         get(){
             console.log("get "+key)
-            //return val
+            return val
         },
 
         // obj.key=xxxx
@@ -33,18 +33,22 @@ function observe(obj){
 }
 
 function proxy(obj,key){
+    console.log(obj)
     // app.$data.counter=>app.counter
     // obj=instance of Vue, key $data
+    // keyofdate=counter obj=app 
     Object.keys(obj[key]).forEach(keyofdata=>{
 
     // here obj:app key1 is the counter
         Object.defineProperty(obj,keyofdata,{
             get(){
-                return obj.key.keyofdata   
+                //console.log(obj[key])
+                return obj[key][keyofdata]   
 
             },
             set(newVal){
-                obj.key.keyofdata=newVal
+                console.log(newVal)
+                obj[key][keyofdata]=newVal
             }
 
          })
@@ -56,9 +60,10 @@ class Vue{
     constructor(options){
         this.$options=options
         this.$data=options.data
-        observe(this.$options.data)
-        proxy(this,this.$data)
-        new Compiler(this.$options.el,this)
+        
+        observe(this.$data)
+        proxy(this,'$data')
+       
         
 
     }
